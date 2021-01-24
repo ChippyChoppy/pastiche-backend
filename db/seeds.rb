@@ -29,7 +29,7 @@ mockpics = [
     "https://static01.nyt.com/images/2020/04/08/dining/08whippedcoffee-drink/08whippedcoffee-drink-articleLarge.jpg"
 ]
 glasses = [
-    "Pint Glass", "Gighball", "Flute", "Old Fashioned Glass", "Rocks Glass", "Nick and Nora", "Snifter", "Mule", "Coup", "Tulip Glass", "Collins Glass", "Wine Glass", "Hurricane Glass", "Martini Glass", "Margarita Glass"
+    "Pint Glass", "Highball", "Flute", "Old Fashioned Glass", "Rocks Glass", "Nick and Nora", "Snifter", "Mule", "Coup", "Tulip Glass", "Collins Glass", "Wine Glass", "Hurricane Glass", "Martini Glass", "Margarita Glass"
 ]
 tags = [
     "Tiki", "Classic", "Blended", "Punch", "Hot", "Short", "Bitter", "Contemporary", "no abv", "low abv"
@@ -71,15 +71,6 @@ measures.each do |measurement|
     Measurement.create measurement
 end
 
-# Measurement.create!(
-#     imperial: (imperial_measure.each do |measurement|
-#         {:imperial => measurement}
-#     end),
-#     metric: (metric_measure.each do |measurement|
-#         {:metric => measurement}
-#     end)
-# )
-
 puts "making ingredients"
 50.times do 
     Ingredient.create!(
@@ -89,7 +80,7 @@ puts "making ingredients"
 end
 
 puts "Mixing some drinks 🧉"
-10.times do 
+8.times do 
     mocktail = Mocktail.create!(
         name: mocktailnames.sample,
         image: mockpics.sample,
@@ -116,34 +107,44 @@ puts "Mixing some drinks 🧉"
     end
 end
 
-puts "Creating human life 👶🏻"
-5.times do 
-    user = User.create!(
-        first_name: Faker::Name.first_name,
-        last_name: Faker::Name.last_name,
-        user_name: Faker::TvShows::DrWho.villain,
-        image: userpics.sample,
-        location: Faker::Address.city,
-        bio: Faker::Hipster.sentence,
-        profesh: Faker::Boolean.boolean 
-    )
-end
+rebecca = User.create(
+    first_name: "Bex",
+    last_name: "Robin",
+    user_name: "BexDrinks",
+    image: "https://scontent.ftpa1-2.fna.fbcdn.net/v/t1.0-9/53726469_10113258332552133_3325061687974821888_o.jpg?_nc_cat=111&ccb=2&_nc_sid=84a396&_nc_ohc=JIAZ6i0AV2wAX82_Pr3&_nc_ht=scontent.ftpa1-2.fna&oh=5d487c60cdeb0add87517046fd28dbde&oe=60337DEA",
+    location: "Melbourne, FL",
+    bio: "Former barista and bartender making sure that everyone has a good drink and a good time.",
+    profesh: "Software Engineer"
+)
+
+# puts "Creating human life 👶🏻"
+# 5.times do 
+#     user = User.create!(
+#         first_name: Faker::Name.first_name,
+#         last_name: Faker::Name.last_name,
+#         user_name: Faker::TvShows::DrWho.villain,
+#         image: userpics.sample,
+#         location: Faker::Address.city,
+#         bio: Faker::Hipster.sentence,
+#         profesh: Faker::Boolean.boolean 
+#     )
+# end
 
 puts "Creating Users Mocktails🥂"
-40.times do
+10.times do
     usersMocktail = UsersMocktail.create!(
-        user_id: User.all.sample.id,
+        user_id: rebecca.id,
         mocktail_id: Mocktail.all.sample.id,
-        r_and_d: Faker::Boolean.boolean,
-        favorite: Faker::Boolean.boolean
+        r_and_d: false,
+        favorite: true
     )
 end
 
 puts "📜 writing some notes 🖋"
-30.times do
+5.times do
     note = Note.create!(
         users_mocktail_id: UsersMocktail.all.sample.id,
-        user_id: User.all.sample.id,
+        user_id: rebecca.id,
         note: Faker::Lorem.sentences(number: 2)
     )
 end

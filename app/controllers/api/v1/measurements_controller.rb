@@ -1,5 +1,10 @@
 class Api::V1::MeasurementsController < ApplicationController
 
+    def index
+        measurement = Measurement.all 
+        render json: measurement
+    end
+
     def new
         measurement = Measurement.new
         render json: measurement

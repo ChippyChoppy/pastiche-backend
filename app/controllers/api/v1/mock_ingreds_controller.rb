@@ -1,5 +1,10 @@
 class Api::V1::MockIngredsController < ApplicationController
     
+    def index
+        mock_ingred = MockIngred.all 
+        render json: mock_ingred
+    end
+    
     def create
         mock_ingred = MockIngred.create(mock_ingred_params)
         render json: mock_ingred
