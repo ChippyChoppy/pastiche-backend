@@ -148,7 +148,3 @@ puts "📜 writing some notes 🖋"
         note: Faker::Lorem.sentences(number: 2)
     )
 end
-
-
-
-
