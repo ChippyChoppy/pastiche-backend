@@ -52,6 +52,10 @@ measures = [
     {imperial: "2oz", metric: "60 mL"}
 ]
 
+ingredients = [
+    {ingredient: "", taste: ""},
+]
+
 userpics = [
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzAExw3XDQGWEm0Degp2o9qwSn2dzaMmHwxQ&usqp=CAU",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVl6XsX8eK_eH-AUArDk97uJkfgMOYaZXEeg&usqp=CAU",
@@ -72,7 +76,7 @@ measures.each do |measurement|
 end
 
 puts "making ingredients"
-50.times do 
+20.times do 
     Ingredient.create!(
         name: Faker::Food.ingredient,
         taste: taste.sample
@@ -80,7 +84,7 @@ puts "making ingredients"
 end
 
 puts "Mixing some drinks 🧉"
-8.times do 
+9.times do 
     mocktail = Mocktail.create!(
         name: mocktailnames.sample,
         image: mockpics.sample,

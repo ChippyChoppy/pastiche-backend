@@ -4,6 +4,7 @@ class MocktailSerializer < ActiveModel::Serializer
   has_many :ingredients
   has_many :measurements
   has_many :mock_ingreds
+  has_many :mock_tags
   has_many :users_mocktails 
   # has_many :users, through: :users_mocktails
 end
