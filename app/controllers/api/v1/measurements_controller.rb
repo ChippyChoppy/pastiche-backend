@@ -17,7 +17,7 @@ class Api::V1::MeasurementsController < ApplicationController
 
     private
     def measurement_params
-        params.require(:measurement).permit(:imperial, :metric)
+        params.permit(:imperial, :metric)
     end
 
 end

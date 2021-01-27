@@ -19,6 +19,6 @@ class Api::V1::MockIngredsController < ApplicationController
 
     private
     def mock_ingred_params
-        params.require(:mock_ingred).permit(:mocktail_id, :measurement_id, :ingredient_id)
+        params.permit(:mocktail_id, :measurement_id, :ingredient_id)
     end
 end
