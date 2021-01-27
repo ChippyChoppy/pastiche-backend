@@ -38,6 +38,6 @@ class Api::V1::NotesController < ApplicationController
 
     private
     def note_params
-        params.permit(:users_mocktail_id, :user_id, :note)
+        params.require(:note).permit(:users_mocktail_id, :user_id, :note)
     end
 end

@@ -6,10 +6,10 @@ Rails.application.routes.draw do
       resources :mocktails
       resources :users
       resources :tags, only: [:index, :new, :create]
-      resources :measurements, only: [:index, :new, :create]
+      resources :measurements, only: [:new, :create]
       resources :users_mocktails
       resources :notes
-      resources :mock_ingreds, only: [:index, :new, :create, :delete]
+      resources :mock_ingreds, only: [:new, :create, :delete]
       resources :mock_tags, only: [:new, :create, :delete]
       resources :ingredients, only: [:index, :show]
     end

@@ -39,6 +39,6 @@ class Api::V1::UsersMocktailsController < ApplicationController
 
     private
     def users_mocktail_params
-        params.permit(:user_id, :mocktail_id, :r_and_d, :favorite)
+        params.require(:users_mocktail).permit(:user_id, :mocktail_id, :r_and_d, :favorite)
     end
 end
