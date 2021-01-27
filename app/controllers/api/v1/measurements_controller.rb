@@ -1,5 +1,10 @@
 class Api::V1::MeasurementsController < ApplicationController
 
+    def index
+        measurement = Measurement.all 
+        render json: measurement
+    end
+
     def new
         measurement = Measurement.new
         render json: measurement
@@ -12,7 +17,7 @@ class Api::V1::MeasurementsController < ApplicationController
 
     private
     def measurement_params
-        params.require(:measurement).permit(:imperial, :metric)
+        params.permit(:imperial, :metric)
     end
 
 end

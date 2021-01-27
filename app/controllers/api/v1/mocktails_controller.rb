@@ -39,6 +39,6 @@ class Api::V1::MocktailsController < ApplicationController
 
     private
     def mocktail_params
-        params.require(:mocktail).permit(:name, :image, :glassware, :instructions, :rating, :about, :creator)
+        params.permit(:name, :image, :glassware, :instructions, :rating, :about, :creator)
     end
 end

@@ -14,6 +14,6 @@ class Api::V1::MockTagsController < ApplicationController
 
     private
     def mock_tag_params
-        params.require(:mock_tag).permit(:mocktail_id, :tag_id)
+        params.permit(:mocktail_id, :tag_id)
     end
 end
